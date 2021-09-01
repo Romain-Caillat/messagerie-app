@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import fondlogin from './img/loginfond.jpg'
 import { useDispatch } from 'react-redux'
-import login from './Userslice'
+import { login } from './Userslice'
 
 function Login() {
   var username = ""
