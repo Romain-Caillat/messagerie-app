@@ -7,9 +7,11 @@ export const userSlice = createSlice({
     password: "",
   },
   reducers: {
-    login: (state, inputuser, inputpassword) => {
-        state.username = inputuser
-        state.password = inputpassword
+    login: (state, action) => {
+      const { username, password } = action.payload;
+      state.username = username
+      state.password = password
+      console.log(state.username)
     },
   },
 })
