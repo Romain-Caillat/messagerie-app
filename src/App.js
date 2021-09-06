@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
 } from "react-router-dom";
 import fondlogin from './img/loginfond.jpg'
 import { useDispatch } from 'react-redux'
@@ -21,11 +21,28 @@ function Login() {
             </h2>
             <input type="text" name="username" placeholder="Enter Username" onChange={(evt) => { username = evt.target.value }} style={{position: 'absolute', top: window.innerHeight / 4 + 50, left: (window.innerWidth / 2) - 70}} />
             <input type="text" name="password" placeholder="Enter Password" onChange={(evt) => { password = evt.target.value }} style={{position: 'absolute', top: window.innerHeight / 4 + 80, left: (window.innerWidth / 2) - 70}} />
-            <button type="button" style={{position: 'absolute', top: window.innerHeight / 4 + 110, left: (window.innerWidth / 2) - 20}} onClick={() => dispatch(login({username, password}))}>
+            <button type="button" style={{position: 'absolute', top: window.innerHeight / 4 + 110, left: (window.innerWidth / 2) - 20}} onClick={() => (dispatch(login({username, password})), <Link to={`/channel`} activeClassName="current"></Link>)}>
               login
             </button>
         </div>
     )
+}
+
+function Channel() {
+  return(<div></div>)
+}
+
+function SwitchRouter() {
+  return (
+    <Switch>
+      <Route path="/channel">
+          <Channel />
+      </Route>
+      <Route path="/">
+          <Login />
+      </Route>
+    </Switch>
+  )
 }
 
 export default function App() {
@@ -33,6 +50,7 @@ export default function App() {
         <Router>
           <div style={{margin: 0, padding: 0}}>
             <Login/>
+            <SwitchRouter/>
           </div>
         </Router>
     )
