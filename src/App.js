@@ -21,25 +21,32 @@ function Login() {
             </h2>
             <input type="text" name="username" placeholder="Enter Username" onChange={(evt) => { username = evt.target.value }} style={{position: 'absolute', top: window.innerHeight / 4 + 50, left: (window.innerWidth / 2) - 70}} />
             <input type="text" name="password" placeholder="Enter Password" onChange={(evt) => { password = evt.target.value }} style={{position: 'absolute', top: window.innerHeight / 4 + 80, left: (window.innerWidth / 2) - 70}} />
-            <button type="button" style={{position: 'absolute', top: window.innerHeight / 4 + 110, left: (window.innerWidth / 2) - 20}} onClick={() => (dispatch(login({username, password})), <Link to={`/channel`} activeClassName="current"></Link>)}>
-              login
+            <button type="button" style={{position: 'absolute', top: window.innerHeight / 4 + 110, left: (window.innerWidth / 2) - 20}} onClick={() => dispatch(login({username, password}))}>
+              <Link to={`/`} activeClassName="current">
+                login
+              </Link>
             </button>
         </div>
     )
 }
 
 function Channel() {
-  return(<div></div>)
+  return(
+  <div>
+    <Link to={`/login`} activeClassName="current">
+      go to login
+    </Link>
+  </div>)
 }
 
 function SwitchRouter() {
   return (
     <Switch>
-      <Route path="/channel">
-          <Channel />
+      <Route path="/login">
+        <Login />
       </Route>
       <Route path="/">
-          <Login />
+        <Channel />
       </Route>
     </Switch>
   )
@@ -49,7 +56,6 @@ export default function App() {
     return (
         <Router>
           <div style={{margin: 0, padding: 0}}>
-            <Login/>
             <SwitchRouter/>
           </div>
         </Router>
