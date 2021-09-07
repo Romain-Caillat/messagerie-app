@@ -15,7 +15,7 @@ function Login() {
   const dispatch = useDispatch()
     return (
         <div style={{margin: 0, padding: 0}}>
-            <img src={fondlogin} style={{ width: window.innerWidth, height: window.innerHeight, margin: 0, padding: 0, position: 'absolute'}}/>
+            <img src={fondlogin} style={{ width: window.innerWidth, height: window.innerHeight, margin: 0, padding: 0, position: 'absolute'}} alt="login"/>
             <h2 style={{position: 'absolute', top: window.innerHeight / 4, left: (window.innerWidth / 2) - 30}}>
               LOGIN
             </h2>
