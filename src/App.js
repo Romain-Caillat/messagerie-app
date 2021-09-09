@@ -7,11 +7,10 @@ import {
 } from "react-router-dom";
 import fondlogin from './img/loginfond.jpg'
 import { useDispatch } from 'react-redux'
-import { login } from './Userslice'
+import { adduser } from './Userslice'
 
 function Login() {
   var username = "pas def"
-  var password = "pas def"
   const dispatch = useDispatch()
     return (
         <div style={{margin: 0, padding: 0}}>
@@ -20,8 +19,7 @@ function Login() {
               LOGIN
             </h2>
             <input type="text" name="username" placeholder="Enter Username" onChange={(evt) => { username = evt.target.value }} style={{position: 'absolute', top: window.innerHeight / 4 + 50, left: (window.innerWidth / 2) - 70}} />
-            <input type="text" name="password" placeholder="Enter Password" onChange={(evt) => { password = evt.target.value }} style={{position: 'absolute', top: window.innerHeight / 4 + 80, left: (window.innerWidth / 2) - 70}} />
-            <button type="button" style={{position: 'absolute', top: window.innerHeight / 4 + 110, left: (window.innerWidth / 2) - 20}} onClick={() => dispatch(login({username, password}))}>
+            <button type="button" style={{position: 'absolute', top: window.innerHeight / 4 + 110, left: (window.innerWidth / 2) - 20}} onClick={() => dispatch(adduser({username}))}>
               <Link to={`/`} activeClassName="current">
                 login
               </Link>
