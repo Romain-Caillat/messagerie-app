@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import fondlogin from './img/loginfond.jpg'
 import { useDispatch } from 'react-redux'
-import { adduser } from './Userslice'
+import { adduser, listofuser, deleteuser } from './Userslice'
 
 function Login() {
   var username = "pas def"
@@ -34,6 +34,7 @@ function Channel() {
     <Link to={`/login`} activeClassName="current">
       go to login
     </Link>
+    <li>{listofuser}</li>
   </div>)
 }
 
