@@ -6,8 +6,8 @@ import {
   Link,
 } from "react-router-dom";
 import fondlogin from './img/loginfond.jpg'
-import { useDispatch } from 'react-redux'
-import { adduser, listofuser } from './Userslice'
+import { useDispatch, useSelector } from 'react-redux'
+import { adduser } from './Userslice'
 
 function Login() {
   var username = "pas def"
@@ -29,6 +29,7 @@ function Login() {
 }
 
 function Channel() {
+  const listofuser = useSelector(state => state.listuser.listuser);
   return(
   <div>
     {console.log(listofuser)}

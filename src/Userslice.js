@@ -29,6 +29,4 @@ export const userSlice = createSlice({
 export const adduser = userSlice.actions.adduser
 export const deleteuser = userSlice.actions.deleteuser
 
-export const listofuser = userSlice.state.list.listuser
-
 export default userSlice.reducer
