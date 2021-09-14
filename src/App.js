@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import fondlogin from './img/loginfond.jpg'
 import { useDispatch } from 'react-redux'
-import { adduser, listofuser, deleteuser } from './Userslice'
+import { adduser, listofuser } from './Userslice'
 
 function Login() {
   var username = "pas def"

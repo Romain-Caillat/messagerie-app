@@ -17,7 +17,7 @@ export const userSlice = createSlice({
         console.log("username", username)
         state.listuser = [...state.listuser]
         for (let i = 0; state.listuser[i]; i++)
-          if (state.listuser[i] == username) {
+          if (state.listuser[i] === username) {
             state.listuser.splice(i)
             console.log(state.listuser)
           }
