@@ -31,11 +31,13 @@ function Login() {
 function Channel() {
   return(
   <div>
+    {console.log(listofuser)}
     <Link to={`/login`} activeClassName="current">
       go to login
     </Link>
     <li>{listofuser}</li>
-  </div>)
+  </div>
+  )
 }
 
 function SwitchRouter() {
