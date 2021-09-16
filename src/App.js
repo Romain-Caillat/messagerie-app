@@ -19,7 +19,10 @@ function Login({user, setUsers}) {
               LOGIN
             </h2>
             <input type="text" name="username" placeholder="Enter Username" onChange={(evt) => { username = evt.target.value }} style={{position: 'absolute', top: window.innerHeight / 4 + 50, left: (window.innerWidth / 2) - 70}} />
-            <button type="button" style={{position: 'absolute', top: window.innerHeight / 4 + 110, left: (window.innerWidth / 2) - 20}} onClick={() => (dispatch(adduser({username})), setUsers(username))}> 
+            <button type="button" style={{position: 'absolute', top: window.innerHeight / 4 + 110, left: (window.innerWidth / 2) - 20}} onClick={() => { 
+              dispatch(adduser({username})); 
+              setUsers(username);
+            }}> 
               <Link to={`/`} activeClassName="current">
                 login
               </Link>
