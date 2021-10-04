@@ -8,6 +8,7 @@ import {
 import fondlogin from './img/loginfond.jpg'
 import { useDispatch, useSelector } from 'react-redux'
 import { adduser } from './Userslice'
+import { addmessage } from './Chatslice'
 
 function Login({user, setUsers}) {
   var username = "pas def"
@@ -39,7 +40,11 @@ function showuser({users}) {
 
 function Channel({user}) {
   const listofuser = useSelector(state => state.listuser.listuser);
+  const generalchat = useSelector(state => state.listmessage.listmessage);
+  var message = "notdefined";
+  const dispatch = useDispatch();
   if (user === '') {
+    console.log(generalchat);
     return(
     <div>
       <Link to={`/login`} activeClassName="current">
@@ -48,16 +53,24 @@ function Channel({user}) {
     </div>
     )
   } else {
+    var a = user.length
     return(
       <div>
-        {console.log(user)}
         <tr key={listofuser}/>
-        <ul id="etc">
+        <ul id="etc" style={{position: 'absolute'}}>
           {listofuser.map (users => {
             return showuser({users})
           })}
         </ul>
-        <h4>actual user:   {user}</h4>
+        <input type="text" name="message" placeholder="Enter message" onChange={(evt) => { message = evt.target.value }} style={{position: 'absolute', top: window.innerHeight / 4 + 50, left: (window.innerWidth / 2) - 70}} />
+        <button type="button" style={{position: 'absolute', top: window.innerHeight / 4 + 110, left: (window.innerWidth / 2) - 20}} onClick={() => { 
+          dispatch(addmessage({message})); }}> 
+          <Link to={`/`} activeClassName="current">
+            login
+          </Link>
+        </button>
+        <h4 style={{position: 'absolute', left: (window.innerWidth - (a * 8)), fontSize: 16 }} >{user}</h4>
+        {console.log(window.innerWidth - a * 7)}
       </div>
       )
   }
