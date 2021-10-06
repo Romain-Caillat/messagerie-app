@@ -7,18 +7,25 @@ export const chatSlice = createSlice({
   },
   reducers: {
     addmessage: (state, action) => {
-        var { newmessage } = action.payload;
-        console.log(newmessage)
-        if (newmessage == null) {
-          newmessage = "pas def"
+        var { message } = action.payload;
+        console.log(message)
+        if (message == null) {
+          message = "pas def"
         }
-          console.log(newmessage)
-        state.listmessage = [...state.listmessage, newmessage]
+          console.log(message)
+        state.listmessage = [...state.listmessage, message]
         console.log(state.listmessage)
     },
+    deletemessage: (state, action) => {
+        state.listmessage = [...state.listmessage]
+        for (let i = 0; i < 20; i++)
+            state.listmessage.splice(i)
+            console.log(state.listmessage)
+    }
   },
 })
 
 export const addmessage = chatSlice.actions.addmessage
+export const deletemessage = chatSlice.actions.deletemessage
 
 export default chatSlice.reducer

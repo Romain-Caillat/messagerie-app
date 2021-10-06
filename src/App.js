@@ -38,6 +38,12 @@ function showuser({users}) {
   )
 }
 
+function showmessage({message}) {
+  return(
+    <li >{message}</li>
+  )
+}
+
 function Channel({user}) {
   const listofuser = useSelector(state => state.listuser.listuser);
   const generalchat = useSelector(state => state.listmessage.listmessage);
@@ -62,11 +68,17 @@ function Channel({user}) {
             return showuser({users})
           })}
         </ul>
-        <input type="text" name="message" placeholder="Enter message" onChange={(evt) => { message = evt.target.value }} style={{position: 'absolute', top: window.innerHeight / 4 + 50, left: (window.innerWidth / 2) - 70}} />
-        <button type="button" style={{position: 'absolute', top: window.innerHeight / 4 + 110, left: (window.innerWidth / 2) - 20}} onClick={() => { 
+        <tr key={listofuser}/>
+        <ul id="etc" style={{position: 'absolute', left: (window.innerWidth / 2) - 120}}>
+          {generalchat.map (message => {
+            return showmessage({message})
+          })}
+        </ul>
+        <input type="text" name="message" placeholder="Enter message" onChange={(evt) => { message = user.concat(": ", evt.target.value) }} style={{position: 'absolute', top: window.innerHeight / 1.2 + 110, left: (window.innerWidth / 2) - 70}} />
+        <button type="button" style={{position: 'absolute', top: window.innerHeight / 1.2 + 110, left: (window.innerWidth / 2) + 120}} onClick={() => { 
           dispatch(addmessage({message})); }}> 
           <Link to={`/`} activeClassName="current">
-            login
+            Enter
           </Link>
         </button>
         <h4 style={{position: 'absolute', left: (window.innerWidth - (a * 8)), fontSize: 16 }} >{user}</h4>
